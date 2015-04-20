@@ -20,11 +20,12 @@ int main(int argc, char **argv)
     struct sockaddr_in clientaddr;
 
     /* Check command line args */
-    if (argc != 2) {
-	fprintf(stderr, "usage: %s <port>\n", argv[0]);
-	exit(1);
+    if (argc < 2) {
+	fprintf(stderr, "Missing port argument, will use port 80\n");
+	port = 80;
+    } else {
+        port = atoi(argv[1]);
     }
-    port = atoi(argv[1]);
 
     listenfd = Open_listenfd(port);
     while (1) {

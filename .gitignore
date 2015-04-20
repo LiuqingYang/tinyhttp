@@ -35,3 +35,6 @@ tinyhttp
 # CMake files
 cmake
 
+# Test files
+testfile
+
